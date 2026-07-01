@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Константин Евлампиев — Автоматизация учёта и AI-помощники для бизнеса</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #533afd;
+  --purple-hover: #4434d4;
+  --navy: #061b31;
+  --slate: #64748d;
+  --label: #273951;
+  --border: #e5edf5;
+  --white: #ffffff;
+  --dark: #1c1e54;
+  --success: #15be53;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  color: var(--navy);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+/* Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+}
+
+.logo {
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--navy);
+  letter-spacing: -0.3px;
+}
+
+.logo span { color: var(--purple); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--navy);
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--purple); }
+
+.nav-cta {
+  background: var(--purple);
+  color: var(--white) !important;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500 !important;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.nav-cta:hover { background: var(--purple-hover) !important; }
+
+/* Hero */
+.hero {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 96px 24px 64px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-weight: 300;
+  font-size: 52px;
+  line-height: 1.08;
+  letter-spacing: -1.2px;
+  color: var(--navy);
+  max-width: 900px;
+  margin: 0 auto 20px;
+}
+
+.hero h1 span {
+  background: linear-gradient(135deg, var(--purple), #7c6aff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--slate);
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--purple);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover { background: var(--purple-hover); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--purple);
+  border: 1px solid #b9b9f9;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn-ghost:hover { background: rgba(83,58,253,0.05); }
+
+/* Services Section */
+.services {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.services h2 {
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 1.12;
+  letter-spacing: -0.6px;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.services-sub {
+  font-weight: 300;
+  font-size: 17px;
+  color: var(--slate);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px;
+  transition: box-shadow 0.3s, transform 0.2s;
+  box-shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
+}
+
+.service-card:hover {
+  box-shadow: rgba(50,50,93,0.25) 0px 40px 55px -30px, rgba(0,0,0,0.1) 0px 22px 40px -18px;
+  transform: translateY(-2px);
+}
+
+.service-card .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.icon-purple { background: rgba(83,58,253,0.1); }
+.icon-green { background: rgba(21,190,83,0.1); }
+.icon-blue { background: rgba(40,116,173,0.1); }
+.icon-orange { background: rgba(155,104,41,0.1); }
+
+.service-card h3 {
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: -0.22px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.service-card .price {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--purple);
+  background: rgba(83,58,253,0.06);
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.service-card ul {
+  list-style: none;
+  font-weight: 300;
+  font-size: 15px;
+  color: var(--slate);
+  line-height: 1.7;
+}
+
+.service-card ul li::before {
+  content: "— ";
+  color: var(--purple);
+}
+
+/* Price table */
+.pricing-note {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--slate);
+  text-align: center;
+  margin-top: 32px;
+  font-style: italic;
+}
+
+/* Process Section */
+.process {
+  background: var(--dark);
+  padding: 80px 24px;
+}
+
+.process-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.process h2 {
+  font-weight: 300;
+  font-size: 36px;
+  letter-spacing: -0.6px;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.step {
+  text-align: center;
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+}
+
+.step .num {
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--purple);
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+
+.step h4 {
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.step p {
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+}
+
+/* Cases Section */
+.cases {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.cases h2 {
+  font-weight: 300;
+  font-size: 36px;
+  letter-spacing: -0.6px;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.cases-sub {
+  font-weight: 300;
+  font-size: 17px;
+  color: var(--slate);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.case-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 28px;
+  box-shadow: rgba(50,50,93,0.25) 0px 20px 35px -25px, rgba(0,0,0,0.1) 0px 12px 25px -12px;
+}
+
+.case-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--purple);
+  background: rgba(83,58,253,0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.case-card h4 {
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.case-card p {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.6;
+}
+
+/* FAQ / CTA */
+.cta-section {
+  background: linear-gradient(135deg, #1c1e54 0%, #2d2b6e 100%);
+  padding: 72px 24px;
+  text-align: center;
+}
+
+.cta-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-weight: 300;
+  font-size: 34px;
+  letter-spacing: -0.5px;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.cta-section p {
+  font-weight: 300;
+  font-size: 17px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 32px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  background: var(--white);
+  color: var(--navy);
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.cta-btn:hover { opacity: 0.9; }
+
+.cta-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.cta-ghost:hover { background: rgba(255,255,255,0.08); }
+
+/* Footer */
+footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+footer p {
+  font-weight: 300;
+  font-size: 13px;
+  color: var(--slate);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--slate);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--purple); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 32px; letter-spacing: -0.6px; }
+  .hero { padding: 64px 20px 40px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: repeat(2, 1fr); }
+  .cases-grid { grid-template-columns: 1fr; }
+  .nav-links a:not(.nav-cta) { display: none; }
+}
+
+@media (max-width: 480px) {
+  .process-steps { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 28px; }
+  .services h2 { font-size: 28px; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-inner">
+  <div class="logo">Константин <span>Евлампиев</span></div>
+  <div class="nav-links">
+    <a href="#services">Услуги</a>
+    <a href="#cases">Кейсы</a>
+    <a href="#process">Как работаю</a>
+    <a href="#contact" class="nav-cta">Связаться</a>
+  </div>
+</div>
+</nav>
+
+<section class="hero">
+  <h1>Автоматизация учёта, <span>AI-помощники</span> и финансовая аналитика для малого и среднего бизнеса</h1>
+  <p>Настраиваю электронных ассистентов, которые читают почту, заполняют документы и отвечают на вопросы. Строю финансовые модели по стандартам банков. Связываю 1С, DataLens и Power BI в единую систему учёта.</p>
+  <div class="hero-buttons">
+    <a href="#services" class="btn-primary">Посмотреть услуги</a>
+    <a href="#contact" class="btn-ghost">Связаться →</a>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <h2>Что я делаю</h2>
+  <p class="services-sub">Четыре направления, которые покрывают 90% задач малого и среднего бизнеса</p>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="icon icon-purple">🧮</div>
+      <h3>Финансовые модели (ФЭМ)</h3>
+      <div class="price">от 80 000 ₽</div>
+      <ul>
+        <li>Полная ФЭМ по стандартам Минсельхоза и банков</li>
+        <li>Горизонт 10 лет, NPV, IRR, DCF, точка безубыточности</li>
+        <li>CAPEX, OPEX, налоги, кредитная нагрузка</li>
+        <li>Графики окупаемости и сценарии чувствительности</li>
+        <li>Готовый бизнес-план для инвесторов / банка</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="icon icon-green">🤖</div>
+      <h3>AI-помощник для бизнеса</h3>
+      <div class="price">100 000 ₽ внедрение + 50 000 ₽/мес</div>
+      <ul>
+        <li>Электронный ассистент, интегрированный с почтой и трекером</li>
+        <li>Поиск по всей переписке, документам и задачам</li>
+        <li>Автоматическое заполнение анкет, договоров, КП</li>
+        <li>Ежедневные сводки, напоминания, контроль сроков</li>
+        <li>Аналитика и отчёты по запросу на естественном языке</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="icon icon-blue">📊</div>
+      <h3>Бизнес-аналитика</h3>
+      <div class="price">от 60 000 ₽ за дашборд</div>
+      <ul>
+        <li>Дашборды в Яндекс DataLens, Power BI, Apache Superset</li>
+        <li>Сбор данных из 1С, CRM, Excel, Google Таблиц</li>
+        <li>Продажи, финансы, логистика, персонал — в реальном времени</li>
+        <li>Автоматическая рассылка отчётов по расписанию</li>
+        <li>Обучение сотрудников работе с дашбордами</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="icon icon-orange">⚙️</div>
+      <h3>Автоматизация учёта</h3>
+      <div class="price">от 50 000 ₽</div>
+      <ul>
+        <li>Настройка и доработка 1С, ERP, ЭДО (Диадок)</li>
+        <li>Закрывающие документы, регламенты, отчётность</li>
+        <li>Обмен данными между системами (API, CSV, OData)</li>
+        <li>Интеграция с банками (Точка, Модульбанк, Тинькофф)</li>
+        <li>Консультации по учётной политике и налогам</li>
+      </ul>
+    </div>
+
+  </div>
+  <p class="pricing-note">Все цены указаны без НДС. Возможна помесячная оплата для длительных проектов.</p>
+</section>
+
+<section class="process" id="process">
+<div class="process-inner">
+  <h2>Как я работаю</h2>
+  <div class="process-steps">
+    <div class="step">
+      <div class="num">01</div>
+      <h4>Аудит</h4>
+      <p>Бесплатно разбираю текущие процессы и «узкие места». Определяю, какие задачи можно автоматизировать.</p>
+    </div>
+    <div class="step">
+      <div class="num">02</div>
+      <h4>Прототип</h4>
+      <p>Собираю MVP за 1–2 недели. Ты видишь, как это работает, до финальной оплаты.</p>
+    </div>
+    <div class="step">
+      <div class="num">03</div>
+      <h4>Внедрение</h4>
+      <p>Настраиваю все системы, обучаю сотрудников, передаю документацию.</p>
+    </div>
+    <div class="step">
+      <div class="num">04</div>
+      <h4>Поддержка</h4>
+      <p>Остаюсь на связи. Доработки, обновления, консультации — в рамках абонентского обслуживания.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="cases" id="cases">
+  <h2>Примеры проектов</h2>
+  <p class="cases-sub">Реальные кейсы, которые можно показать инвесторам и партнёрам</p>
+  <div class="cases-grid">
+
+    <div class="case-card">
+      <div class="case-tag">ФЭМ + Бизнес-план</div>
+      <h4>Элеватор 80 000 тонн (НСО)</h4>
+      <p>Полная ФЭМ (CAPEX 1,86 млрд, NPV 1 202 млн, IRR 19%) + бизнес-план по стандартам Минсельхоза для банковского финансирования 2,8 млрд ₽. Подготовлен за 3 недели.</p>
+    </div>
+
+    <div class="case-card">
+      <div class="case-tag">AI-помощник</div>
+      <h4>IT-компания с командой 30+ человек</h4>
+      <p>Настроен ассистент для поиска по 7 000+ писем и 200+ задач трекера. Автоматическое заполнение анкет финансового партнёра. Замена ручного труда экономиста на 3+ часа в день.</p>
+    </div>
+
+    <div class="case-card">
+      <div class="case-tag">Бизнес-аналитика</div>
+      <h4>Дашборд для сети МФЦ</h4>
+      <p>DataLens + 1С: сводка по 69 МФЦ в реальном времени. Контроль выручки, загруженности и эффективности рекламных контрактов. Сократил время подготовки отчётов с 2 дней до 10 минут.</p>
+    </div>
+
+    <div class="case-card">
+      <div class="case-tag">Автоматизация учёта</div>
+      <h4>Факторинг + договорная работа</h4>
+      <p>Настроен ЭДО (Диадок), автоматизировано закрывающие документы, подготовлены шаблоны договоров поручительства и лицензионных договоров. Интеграция с ROWI Факторинг.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+<div class="cta-inner">
+  <h2>Готовы обсудить ваш проект?</h2>
+  <p>Пришлите описание задачи — я бесплатно оценю, смогу ли помочь, и предложу формат работы. Обычно отвечаю в течение часа.</p>
+  <div class="cta-buttons">
+    <a href="mailto:kevlampiev@gmail.com" class="cta-btn">Написать на почту</a>
+    <a href="tg://resolve?domain=kevlampiev" class="cta-ghost">Написать в Telegram</a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <p>© 2026 Константин Евлампиев — автоматизация учёта, AI-помощники, ФЭМ и аналитика</p>
+  <div class="footer-links">
+    <a href="mailto:kevlampiev@gmail.com">Почта</a>
+    <a href="#">Telegram</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>
