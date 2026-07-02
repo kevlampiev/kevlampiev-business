@@ -10,7 +10,7 @@
   --purple: #533afd;
   --purple-hover: #4434d4;
   --navy: #061b31;
-  --slate: #64748d;
+  --slate: #64748b;
   --label: #273951;
   --border: #e5edf5;
   --white: #ffffff;
@@ -160,6 +160,69 @@ nav {
 
 .btn-ghost:hover { background: rgba(83,58,253,0.05); }
 
+/* About section */
+.about {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.about-photo {
+  flex-shrink: 0;
+  width: 280px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
+}
+
+.about-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-text h2 {
+  font-weight: 300;
+  font-size: 32px;
+  letter-spacing: -0.6px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.about-text .subtitle {
+  font-size: 15px;
+  color: var(--purple);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-weight: 300;
+  font-size: 15px;
+  color: var(--slate);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.about-tags span {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--purple);
+  background: rgba(83,58,253,0.07);
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
 /* Services Section */
 .services {
   max-width: 1080px;
@@ -167,7 +230,7 @@ nav {
   padding: 80px 24px;
 }
 
-.services h2 {
+.services h2, .cases h2 {
   font-weight: 300;
   font-size: 36px;
   line-height: 1.12;
@@ -177,7 +240,7 @@ nav {
   margin-bottom: 12px;
 }
 
-.services-sub {
+.services-sub, .cases-sub {
   font-weight: 300;
   font-size: 17px;
   color: var(--slate);
@@ -254,7 +317,6 @@ nav {
   color: var(--purple);
 }
 
-/* Price table */
 .pricing-note {
   font-weight: 300;
   font-size: 14px;
@@ -262,6 +324,78 @@ nav {
   text-align: center;
   margin-top: 32px;
   font-style: italic;
+}
+
+/* Cases Section */
+.cases {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.case-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 28px;
+  box-shadow: rgba(50,50,93,0.25) 0px 20px 35px -25px, rgba(0,0,0,0.1) 0px 12px 25px -12px;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.case-card:hover {
+  box-shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 22px 36px -18px;
+  transform: translateY(-2px);
+}
+
+.case-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--purple);
+  background: rgba(83,58,253,0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.case-card h4 {
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.case-card p {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.6;
+}
+
+.case-screenshot {
+  margin-top: 16px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.case-screenshot img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.case-screenshot:hover {
+  box-shadow: 0 4px 16px rgba(83,58,253,0.15);
 }
 
 /* Process Section */
@@ -320,71 +454,7 @@ nav {
   line-height: 1.5;
 }
 
-/* Cases Section */
-.cases {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 80px 24px;
-}
-
-.cases h2 {
-  font-weight: 300;
-  font-size: 36px;
-  letter-spacing: -0.6px;
-  color: var(--navy);
-  text-align: center;
-  margin-bottom: 12px;
-}
-
-.cases-sub {
-  font-weight: 300;
-  font-size: 17px;
-  color: var(--slate);
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.cases-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.case-card {
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 28px;
-  box-shadow: rgba(50,50,93,0.25) 0px 20px 35px -25px, rgba(0,0,0,0.1) 0px 12px 25px -12px;
-}
-
-.case-tag {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--purple);
-  background: rgba(83,58,253,0.08);
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.case-card h4 {
-  font-weight: 400;
-  font-size: 18px;
-  color: var(--navy);
-  margin-bottom: 6px;
-}
-
-.case-card p {
-  font-weight: 300;
-  font-size: 14px;
-  color: var(--slate);
-  line-height: 1.6;
-}
-
-/* FAQ / CTA */
+/* CTA */
 .cta-section {
   background: linear-gradient(135deg, #1c1e54 0%, #2d2b6e 100%);
   padding: 72px 24px;
@@ -483,10 +553,36 @@ footer p {
 
 .footer-links a:hover { color: var(--purple); }
 
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero h1 { font-size: 32px; letter-spacing: -0.6px; }
   .hero { padding: 64px 20px 40px; }
+  .about { flex-direction: column; align-items: center; text-align: center; }
+  .about-photo { width: 180px; }
+  .about-tags { justify-content: center; }
   .services-grid { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
   .cases-grid { grid-template-columns: 1fr; }
@@ -507,6 +603,7 @@ footer p {
 <div class="nav-inner">
   <div class="logo">Константин <span>Евлампиев</span></div>
   <div class="nav-links">
+    <a href="#about">Об авторе</a>
     <a href="#services">Услуги</a>
     <a href="#cases">Кейсы</a>
     <a href="#process">Как работаю</a>
@@ -521,6 +618,27 @@ footer p {
   <div class="hero-buttons">
     <a href="#services" class="btn-primary">Посмотреть услуги</a>
     <a href="#contact" class="btn-ghost">Связаться →</a>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-photo">
+    <img src="img/konstantin.jpg" alt="Константин Евлампиев" loading="lazy">
+  </div>
+  <div class="about-text">
+    <h2>Кто я</h2>
+    <div class="subtitle">Финансист → Автоматизация → AI-продукты</div>
+    <p>Более 20 лет в финансах: от главного бухгалтера до финансового директора. Последние 5 лет — IT-предприниматель и архитектор систем автоматизации.</p>
+    <p>Мой подход: не продаю «коробку», а собираю решение под конкретный бизнес. Начинаю с аудита — бесплатно. Делаю MVP, который можно пощупать до оплаты. Остаюсь на поддержке после внедрения.</p>
+    <p>Сейчас веду три направления: <strong>финансовые модели</strong> для инвесторов и банков, <strong>AI-помощников</strong> для малого бизнеса (интеграция с почтой, трекером, документами) и <strong>аналитические дашборды</strong> на DataLens, Power BI, Superset.</p>
+    <div class="about-tags">
+      <span>ФЭМ / Бизнес-планы</span>
+      <span>AI-ассистенты</span>
+      <span>DataLens</span>
+      <span>Power BI</span>
+      <span>1С / ERP</span>
+      <span>ЭДО / Диадок</span>
+    </div>
   </div>
 </section>
 
@@ -585,6 +703,44 @@ footer p {
   <p class="pricing-note">Все цены указаны без НДС. Возможна помесячная оплата для длительных проектов.</p>
 </section>
 
+<section class="cases" id="cases">
+  <h2>Примеры проектов</h2>
+  <p class="cases-sub">Реальные кейсы с цифрами и скриншотами работающих систем</p>
+  <div class="cases-grid">
+
+    <div class="case-card">
+      <div class="case-tag">ФЭМ + Бизнес-план</div>
+      <h4>Элеватор 80 000 тонн (НСО)</h4>
+      <p>Полная ФЭМ (CAPEX 1,86 млрд, NPV 1 202 млн, IRR 19%) + бизнес-план по стандартам Минсельхоза для банковского финансирования 2,8 млрд ₽. Подготовлен за 3 недели.</p>
+    </div>
+
+    <div class="case-card">
+      <div class="case-tag">AI-помощник</div>
+      <h4>IT-компания с командой 30+ человек</h4>
+      <p>Настроен ассистент для поиска по 7 000+ писем и 200+ задач трекера. Автоматическое заполнение анкет финансового партнёра. Замена ручного труда экономиста на 3+ часа в день.</p>
+      <div class="case-screenshot" onclick="openLightbox(this)">
+        <img src="img/neuro_ai.png" alt="AI-помощник — дашборд поиска и аналитики" loading="lazy">
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-tag">Бизнес-аналитика</div>
+      <h4>Дашборд для сети МФЦ</h4>
+      <p>DataLens + 1С: сводка по 69 МФЦ в реальном времени. Контроль выручки, загруженности и эффективности рекламных контрактов. Сократил время подготовки отчётов с 2 дней до 10 минут.</p>
+      <div class="case-screenshot" onclick="openLightbox(this)">
+        <img src="img/mfc_dashboard.png" alt="Дашборд DataLens — сеть МФЦ" loading="lazy">
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-tag">Автоматизация учёта</div>
+      <h4>Факторинг + договорная работа</h4>
+      <p>Настроен ЭДО (Диадок), автоматизировано закрывающие документы, подготовлены шаблоны договоров поручительства и лицензионных договоров. Интеграция с ROWI Факторинг.</p>
+    </div>
+
+  </div>
+</section>
+
 <section class="process" id="process">
 <div class="process-inner">
   <h2>Как я работаю</h2>
@@ -613,38 +769,6 @@ footer p {
 </div>
 </section>
 
-<section class="cases" id="cases">
-  <h2>Примеры проектов</h2>
-  <p class="cases-sub">Реальные кейсы, которые можно показать инвесторам и партнёрам</p>
-  <div class="cases-grid">
-
-    <div class="case-card">
-      <div class="case-tag">ФЭМ + Бизнес-план</div>
-      <h4>Элеватор 80 000 тонн (НСО)</h4>
-      <p>Полная ФЭМ (CAPEX 1,86 млрд, NPV 1 202 млн, IRR 19%) + бизнес-план по стандартам Минсельхоза для банковского финансирования 2,8 млрд ₽. Подготовлен за 3 недели.</p>
-    </div>
-
-    <div class="case-card">
-      <div class="case-tag">AI-помощник</div>
-      <h4>IT-компания с командой 30+ человек</h4>
-      <p>Настроен ассистент для поиска по 7 000+ писем и 200+ задач трекера. Автоматическое заполнение анкет финансового партнёра. Замена ручного труда экономиста на 3+ часа в день.</p>
-    </div>
-
-    <div class="case-card">
-      <div class="case-tag">Бизнес-аналитика</div>
-      <h4>Дашборд для сети МФЦ</h4>
-      <p>DataLens + 1С: сводка по 69 МФЦ в реальном времени. Контроль выручки, загруженности и эффективности рекламных контрактов. Сократил время подготовки отчётов с 2 дней до 10 минут.</p>
-    </div>
-
-    <div class="case-card">
-      <div class="case-tag">Автоматизация учёта</div>
-      <h4>Факторинг + договорная работа</h4>
-      <p>Настроен ЭДО (Диадок), автоматизировано закрывающие документы, подготовлены шаблоны договоров поручительства и лицензионных договоров. Интеграция с ROWI Факторинг.</p>
-    </div>
-
-  </div>
-</section>
-
 <section class="cta-section" id="contact">
 <div class="cta-inner">
   <h2>Готовы обсудить ваш проект?</h2>
@@ -660,10 +784,29 @@ footer p {
   <p>© 2026 Константин Евлампиев — автоматизация учёта, AI-помощники, ФЭМ и аналитика</p>
   <div class="footer-links">
     <a href="mailto:kevlampiev@gmail.com">Почта</a>
-    <a href="#">Telegram</a>
-    <a href="#">LinkedIn</a>
+    <a href="https://t.me/kevlampiev">Telegram</a>
+    <a href="https://linkedin.com/in/kevlampiev">LinkedIn</a>
   </div>
 </footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+  <img id="lightbox-img" src="" alt="Просмотр">
+</div>
+
+<script>
+function openLightbox(el) {
+  const img = el.querySelector('img');
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('active');
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+});
+</script>
 
 </body>
 </html>
